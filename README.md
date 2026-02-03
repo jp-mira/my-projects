@@ -1,1 +1,3 @@
-# This is the Frontend Developer beginner projects following roadmap.sh
+# This is the Frontend Developer Beginner Projects
+
+## This follows the [roadmap.sh](https://roadmap.sh/) for frontend development
