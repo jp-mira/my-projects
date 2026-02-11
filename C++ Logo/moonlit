@@ -1,1 +1,175 @@
+#include <GLFW/glfw3.h>
+#include <cmath>
 
+int color = 0;
+
+void Circle(GLfloat cx, GLfloat cy) {
+    GLfloat GL_PI = 3.14;
+    GLfloat angle;
+    GLfloat x, y;
+
+    glBegin(GL_TRIANGLE_FAN);
+    for (angle = 0.0f; angle <= (2.0f * GL_PI); angle += 0.01f)
+    {
+        x = cx + 50.0f * sin(angle);
+        y = cy + 50.0f * cos(angle);
+        glVertex3f(x, y, 0.0f);
+    }
+    glEnd();
+}
+
+void removeSegment(GLfloat cx, GLfloat cy) {
+    GLfloat GL_PI = 3.14;
+    GLfloat angle;
+    GLfloat x, y;
+
+    glBegin(GL_TRIANGLE_FAN);
+    for (angle = 0.0f; angle <= (2.0f * GL_PI); angle += 0.01f)
+    {
+        x = cx + 80.0f * sin(angle);
+        y = cy + 80.0f * cos(angle);
+        glVertex3f(x, y, 0.0f);
+    }
+    glEnd();
+}
+
+void createTwoSegments() {
+
+    glColor3f(0.294f, 0.549f, 0.639f);
+    
+    //first segment
+    glBegin(GL_POLYGON);
+    glVertex2f(-2.25f, 2.04f);
+    glVertex2f(-40.5f, -12.30f);
+    glVertex2f(-48.60f, -4.70f);
+    glVertex2f(-15.63f, 14.55f);
+    glVertex2f(1.45f, 48.88f);
+    glVertex2f(9.55f, 41.23f);
+    glVertex2f(-2.25f, 2.04f);
+    glEnd();
+
+    //second segment
+    glBegin(GL_POLYGON);
+    glVertex2f(-49.62f, -2.304f);
+    glVertex2f(-53.29f, 3.334f);
+    glVertex2f(-52.34f, 9.935f);
+    glVertex2f(-46.68f, 13.44f);
+    glVertex2f(-47.63f, 6.86f);
+    glVertex2f(-44.16f, 1.196f);
+    glVertex2f(-49.62f, -2.304f);
+    glEnd();
+
+}
+
+void createStar(GLfloat cx, GLfloat cy) {
+    GLfloat GL_PI = 3.14;
+    GLfloat angle;
+    GLfloat x, y;
+
+    glBegin(GL_TRIANGLE_FAN);
+    for (angle = 0.0f; angle <= (2.0f * GL_PI); angle += 0.01f)
+    {
+        x = cx + 11.65f * sin(angle);
+        y = cy + 11.65f * cos(angle);
+        glVertex3f(x, y, 0.0f);
+    }
+    glEnd();
+}
+
+void mouse_button_callback(GLFWwindow* window, int button, int action, int mods) {
+    if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS) {
+        color++;
+    }
+}
+
+int main(void)
+{
+    GLFWwindow* window;
+    GLfloat GL_PI = 3.14;
+
+    /* Initialize the library */
+    if (!glfwInit())
+        return -1;
+    /* Create a windowed mode window and its OpenGL context */
+    window = glfwCreateWindow(1200, 1200, "Moonlit", NULL, NULL);
+    if (!window)
+    {
+        glfwTerminate();
+        return -1;
+    }
+
+    /* Make the window's context current */
+    glfwMakeContextCurrent(window);
+
+    glClearColor(0.376f, 0.376f, 0.376f, 0.0f);
+    glOrtho(-100.0f, 100.0f, -100.0f, 100.0f, -100.0f, 100.0f);
+    glfwSetMouseButtonCallback(window, mouse_button_callback);
+    
+    /* Loop until the user closes the window */
+    while (!glfwWindowShouldClose(window))
+    {
+        glClear(GL_COLOR_BUFFER_BIT);
+        /* Render here */
+        //first-circle
+        glColor3f(0.3922f, 0.4353f, 0.4510f);
+        Circle(0.0F, 0.0F);
+
+        //second circle
+        glColor3f(0.6549f, 0.7608f, 0.8000f);
+        Circle(-18.53F, 17.445F);
+
+        //remove the excess
+        glColor3f(0.376f, 0.376f, 0.376f);
+        removeSegment(-55.48F, 52.88F);
+
+        //for star
+        glColor3f(1.0f, 0.996f, 0.478f);
+        createStar(-37.45, 22.021);
+
+        //for interactivity
+        switch (color)
+        {
+        case 1:
+            glColor3f(0.4f, 0.36f, 0.76f);
+            createStar(-37.45, 22.021);
+            break;
+        case 2:
+            glColor3f(0.839f, 0.467f, 0.035f);
+            createStar(-37.45, 22.021);
+            break;
+        case 3:
+            glColor3f(0.745f, 0.671f, 0.757f);
+            createStar(-37.45, 22.021);
+            break;
+        default:
+            color = 0;
+            glColor3f(1.0f, 0.996f, 0.478f);
+            break;
+        }
+
+        //remove excess parts of the star
+        glColor3f(0.376f, 0.376f, 0.376f);
+        createStar(-53.96, 22.021);
+
+        glColor3f(0.376f, 0.376f, 0.376f);
+        createStar(-37.45, 38.2);
+
+        glColor3f(0.376f, 0.376f, 0.376f);
+        createStar(-20.96, 22.021);
+
+        glColor3f(0.376f, 0.376f, 0.376f);
+        createStar(-37.45, 5.838);
+
+        //for two segments
+        createTwoSegments();
+        
+        /* Swap front and back buffers */
+        glfwSwapBuffers(window);
+
+        /* Poll for and process events */
+        glfwPollEvents();
+    }
+
+    glfwTerminate();
+    return 0;
+}
