@@ -1,10 +1,30 @@
-.header{
-display: flex;
-align-items: center;
-gap: 16px;
+.header {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  gap: 10px;
 }
-#my-picture{
-width: 50px;
-height: 50px;
-border: 1px solid black;
+
+.my-name h1 {
+  font-family: Georgia;
+  font-size: 24px;
+  margin-bottom: 0px;
+}
+
+.other-details span {
+  margin: 0px 0px;
+  position: relative;
+  font-family: Arial;
+  font-size: 15px;
+}
+
+.other-details span:not(:last-child)::after {
+  content: " | ";
+}
+
+
+#my-picture {
+  width: 67px;
+  height: 67px;
+  border: 1px solid black;
 }
