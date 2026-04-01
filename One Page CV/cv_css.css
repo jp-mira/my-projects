@@ -4,6 +4,9 @@ body{
     margin: 0;
     padding: 20px;
 }
+li{
+    margin-bottom: 5px;
+}
 
 #my-picture {
   width: 67px;
@@ -35,15 +38,34 @@ body{
   content: " | ";
 }
 
-.summary h2{
+.professional_summary h2{
     margin-bottom: -5px;
 }
 
-.summary span{
+.professional_summary span{
     font-family: Arial;
     font-size: 15px;
     text-align: justify;
 }
+
+.education-details{
+    font-size: 15px;
+    font-family: Arial;
+    display: flex;
+    justify-content: space-between;
+    flex: wrap;
+}
+
+.education-details .left{
+    max-width: 60%;
+    margin-right: 10px;
+}
+
+.education-details .right {
+    text-align: right;
+    margin: 0px;
+}
+
 
 
 
