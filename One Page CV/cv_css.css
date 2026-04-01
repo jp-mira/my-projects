@@ -1,3 +1,16 @@
+body{
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+}
+
+#my-picture {
+  width: 67px;
+  height: 67px;
+  border: 1px solid black;
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -22,9 +35,15 @@
   content: " | ";
 }
 
-
-#my-picture {
-  width: 67px;
-  height: 67px;
-  border: 1px solid black;
+.summary h2{
+    margin-bottom: -5px;
 }
+
+.summary span{
+    font-family: Arial;
+    font-size: 15px;
+    text-align: justify;
+}
+
+
+
