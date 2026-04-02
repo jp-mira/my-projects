@@ -80,3 +80,7 @@ p {
   text-align: right;
   margin: 0px;
 }
+
+.awards li{
+  font-weight: bold;
+}
