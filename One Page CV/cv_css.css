@@ -1,11 +1,16 @@
-body{
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    padding: 20px;
+body {
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 20px;
 }
-li{
-    margin-bottom: 5px;
+li {
+  margin: 5px 0px;
+  font-family: Arial;
+  font-size: 15px;
+}
+p {
+  margin-bottom: -10px;
 }
 
 #my-picture {
@@ -38,34 +43,32 @@ li{
   content: " | ";
 }
 
-.professional_summary h2{
-    margin-bottom: -5px;
+.professional_summary h2 {
+  margin-bottom: -5px;
 }
 
-.professional_summary span{
-    font-family: Arial;
-    font-size: 15px;
-    text-align: justify;
+.professional_summary span {
+  font-family: Arial;
+  font-size: 15px;
+  text-align: justify;
 }
 
-.education-details{
-    font-size: 15px;
-    font-family: Arial;
-    display: flex;
-    justify-content: space-between;
-    flex: wrap;
+.education-details {
+  font-size: 15px;
+  font-family: Arial;
+  display: flex;
+  justify-content: space-between;
+  flex: wrap;
 }
 
-.education-details .left{
-    max-width: 60%;
-    margin-right: 10px;
+.education-details .left {
+  margin-bottom: -10px;
+  max-width: 60%;
+  margin-right: 10px;
 }
 
 .education-details .right {
-    text-align: right;
-    margin: 0px;
+  margin-bottom: -10px;
+  text-align: right;
+  margin: 0px;
 }
-
-
-
-
