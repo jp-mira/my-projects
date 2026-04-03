@@ -3,6 +3,11 @@ body {
   align-items: center;
   margin: 0;
   padding: 20px;
+  background-color: black;
+  color: white;
+}
+.links{
+  color: white;
 }
 h2{
   font-family: Arial;
